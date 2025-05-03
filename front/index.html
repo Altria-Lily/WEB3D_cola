@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CakeCola 3D Display</title>
+    <link rel="stylesheet" href="./src/index.css">
+  </head>
+  <body>
+    <div class="w-full h-screen bg-black relative overflow-hidden">
+      <div class="z-[50] fixed h-[18%] w-full px-[5vw] flex justify-between items-center bg-black bg-opacity-80 shadow-lg border-b border-gray-800"> 
+        <div class="navbar w-[9vw] flex items-center justify-center">
+          <img class="w-full h-full object-cover" src="./public/logo2.png" alt="CakeCola Logo">
+        </div>
+        <div class="nav-right text-white font-[gilroy] flex gap-[2vw] text-lg">
+          <h2 id="home-link" class="cursor-pointer hover:text-red-500 hover:scale-105 transition-all duration-200 py-2 px-3 rounded hover:bg-gray-900">Home</h2>
+          <h2 id="products-link" class="cursor-pointer hover:text-red-500 hover:scale-105 transition-all duration-200 py-2 px-3 rounded hover:bg-gray-900">Products</h2>
+          <h2 id="contact-link" class="cursor-pointer hover:text-red-500 hover:scale-105 transition-all duration-200 py-2 px-3 rounded hover:bg-gray-900">Contact Us</h2>
+          <h2 id="about-link" class="cursor-pointer hover:text-red-500 hover:scale-105 transition-all duration-200 py-2 px-3 rounded hover:bg-gray-900">About</h2>
+        </div>
+      </div>
+      <div id="home-page" class="landing w-full h-full relative overflow-hidden">
+        <!-- Main Title Area -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center z-10">
+          <div class="text-center max-w-5xl px-4">
+            <h1 class="text-white text-6xl md:text-7xl font-bold mb-6 tracking-tight animate-fadeIn">
+              <span class="text-red-600">CakeCola</span> Brand Experience
+            </h1>
+            <p class="text-white text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">
+              An innovative beverage brand leading trends and breaking traditions. Explore our three carefully designed products and experience an unprecedented visual feast and taste sensation.
+            </p>
+            <button id="explore-products" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full text-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+              Explore Now
+            </button>
+          </div>
+        </div>
+        
+        <!-- Featured Product Display Area -->
+        <div class="absolute bottom-0 left-0 right-0 py-10 px-5 bg-gradient-to-t from-black to-transparent z-10">
+          <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <!-- Classic Series -->
+              <div class="bg-black bg-opacity-70 rounded-lg p-6 transform transition-all duration-300 hover:scale-105 hover:bg-opacity-80">
+                <div class="mb-4 h-40 flex items-center justify-center">
+                  <img src="./public/images/cola.jpg" alt="Classic" class="h-full object-contain">
+                </div>
+                <h3 class="text-white text-xl font-bold mb-2">Classic CakeCola</h3>
+                <p class="text-gray-300 mb-4">An unparalleled original flavor experience with classic red bottle design, one of the most familiar and beloved beverages for global consumers.</p>
+                <button class="product-explore-btn bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded text-sm" data-product="real">
+                  View 3D Model
+                </button>
+              </div>
+              
+              <!-- Sprite Series -->
+              <div class="bg-black bg-opacity-70 rounded-lg p-6 transform transition-all duration-300 hover:scale-105 hover:bg-opacity-80">
+                <div class="mb-4 h-40 flex items-center justify-center">
+                  <img src="./public/images/sprite.jpg" alt="Sprite" class="h-full object-contain">
+                </div>
+                <h3 class="text-white text-xl font-bold mb-2">Refreshing Series</h3>
+                <p class="text-gray-300 mb-4">Clear soda with fresh lemon flavor, refreshingly thirst-quenching, with distinctive green packaging, an ideal choice for summer.</p>
+                <button class="product-explore-btn bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded text-sm" data-product="fanda">
+                  View 3D Model
+                </button>
+              </div>
+              
+              <!-- Fanta Series -->
+              <div class="bg-black bg-opacity-70 rounded-lg p-6 transform transition-all duration-300 hover:scale-105 hover:bg-opacity-80">
+                <div class="mb-4 h-40 flex items-center justify-center">
+                  <img src="./public/images/fanda.jpg" alt="Fanta" class="h-full object-contain">
+                </div>
+                <h3 class="text-white text-xl font-bold mb-2">Energetic Series</h3>
+                <p class="text-gray-300 mb-4">Vibrant orange-flavored soda with bright orange packaging, delivering a fruity and refreshing experience.</p>
+                <button class="product-explore-btn bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded text-sm" data-product="cococola">
+                  View 3D Model
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Technical Features Introduction -->
+        <div class="absolute top-1/2 transform -translate-y-1/2 right-5 w-64 bg-black bg-opacity-70 p-4 rounded-lg z-10 hidden md:block">
+          <h3 class="text-white text-lg font-bold mb-3">3D Interactive Technology</h3>
+          <ul class="text-gray-300 text-sm space-y-2">
+            <li class="flex items-center">
+              <svg class="w-4 h-4 mr-2 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              360° Comprehensive Product Display
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 mr-2 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              Real-time Lighting and Material Adjustment
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 mr-2 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              Multi-angle Preset Views
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 mr-2 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              Interactive Animation Effects
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div id="products-page" class="hidden flex-col items-center justify-center w-full h-full">
+        <div class="text-white text-3xl mb-10 font-bold">Choose a Product</div>
+        <div class="flex justify-center gap-10">
+          <div class="product-card cursor-pointer bg-gray-900 p-5 rounded-lg flex flex-col items-center" data-model="real">
+            <div class="text-white text-xl mb-3">Classic</div>
+            <div class="bg-red-600 w-32 h-48 rounded-md flex items-center justify-center">
+              <span class="text-white">Classic Cola</span>
+            </div>
+          </div>
+          <div class="product-card cursor-pointer bg-gray-900 p-5 rounded-lg flex flex-col items-center" data-model="fanda">
+            <div class="text-white text-xl mb-3">Sprite Series</div>
+            <div class="bg-green-500 w-32 h-48 rounded-md flex items-center justify-center">
+              <span class="text-white">Sprite</span>
+            </div>
+          </div>
+          <div class="product-card cursor-pointer bg-gray-900 p-5 rounded-lg flex flex-col items-center" data-model="cococola">
+            <div class="text-white text-xl mb-3">Fanta Series</div>
+            <div class="bg-orange-500 w-32 h-48 rounded-md flex items-center justify-center">
+              <span class="text-white">Fanta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Classic Detail Page -->
+      <div id="real-model-page" class="hidden w-full h-full">
+        <div class="absolute top-5 right-5 z-10">
+          <button id="back-to-products-from-real" class="bg-white p-2 rounded-full shadow-lg hover:bg-red-100 transition-colors flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <img src="./public/logo2.png" alt="Coca-Cola" class="h-5 w-5 ml-1">
+          </button>
+        </div>
+        
+        <!-- Model Information Panel -->
+        <div class="absolute top-36 right-5 z-50 bg-black bg-opacity-70 p-4 rounded-lg text-white max-w-xs">
+          <h3 class="text-xl font-bold mb-2">Classic Coca-Cola</h3>
+          <p class="mb-3">The classic Coca-Cola bottle design is one of the most iconic products of the Coca-Cola brand. This design continues the classic elements of the brand, including the iconic silhouette and classic red label, with high recognition worldwide.</p>
+          <div class="text-sm text-gray-300">Click the buttons below to interact with the model</div>
+        </div>
+        
+        <!-- Mouse Operation Hint -->
+        <div class="absolute top-5 left-1/2 transform -translate-x-1/2 z-10 bg-black bg-opacity-70 py-2 px-4 rounded-lg text-white text-center drag-hint">
+          <div class="flex items-center">
+            <svg class="w-6 h-6 mr-2 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+            </svg>
+            <span>Hold left mouse button and drag to rotate and view different angles</span>
+          </div>
+        </div>
+        
+        <!-- Bottom Control Buttons -->
+        <div class="absolute bottom-5 left-5 z-10 flex gap-4">
+          <button id="open-cap-real" class="bg-white py-2 px-4 rounded">Open Cap</button>
+          <button id="flatten-real" class="bg-white py-2 px-4 rounded">Flatten Bottle</button>
+          <button id="reset-model-real" class="bg-white py-2 px-4 rounded">Reset Model</button>
+          <button id="auto-rotate-real" class="bg-white py-2 px-4 rounded">Auto Rotate</button>
+        </div>
+        
+        <!-- Side Control Panel -->
+        <div class="absolute left-5 top-1/2 transform -translate-y-1/2 z-10 bg-black bg-opacity-70 p-4 rounded-lg text-white">
+          <div class="mb-6">
+            <h3 class="text-lg font-bold mb-2">Lighting Control</h3>
+            <div class="mb-3">
+              <label class="block mb-1 text-sm">Ambient Light Intensity</label>
+              <input type="range" id="ambient-light-real" min="0" max="1" step="0.1" value="0.5" class="w-full">
+            </div>
+            <div class="mb-3">
+              <label class="block mb-1 text-sm">Main Light Intensity</label>
+              <input type="range" id="main-light-real" min="0" max="2" step="0.1" value="1" class="w-full">
+            </div>
+            <div class="mb-3">
+              <label class="block mb-1 text-sm">Light Color</label>
+              <input type="color" id="light-color-real" value="#ffffff" class="w-full h-8">
+            </div>
+            <div class="mb-3 flex items-center">
+              <input type="checkbox" id="toggle-spotlight-real" class="mr-2">
+              <label for="toggle-spotlight" class="text-sm">Enable Spotlight</label>
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <h3 class="text-lg font-bold mb-2">Camera View</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <button id="view-front-real" class="bg-gray-700 py-1 px-2 rounded text-sm">Front</button>
+              <button id="view-back-real" class="bg-gray-700 py-1 px-2 rounded text-sm">Back</button>
+              <button id="view-top-real" class="bg-gray-700 py-1 px-2 rounded text-sm">Top</button>
+              <button id="view-bottom-real" class="bg-gray-700 py-1 px-2 rounded text-sm">Bottom</button>
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <h3 class="text-lg font-bold mb-2">Material Control</h3>
+            <div class="grid grid-cols-2 gap-2 mb-3">
+              <button id="material-default-real" class="bg-gray-700 py-1 px-2 rounded text-sm">Default</button>
+              <button id="material-wireframe-real" class="bg-gray-700 py-1 px-2 rounded text-sm">Wireframe</button>
+              <button id="material-shiny-real" class="bg-gray-700 py-1 px-2 rounded text-sm">Glossy</button>
+              <button id="material-matte-real" class="bg-gray-700 py-1 px-2 rounded text-sm">Matte</button>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold mb-2">Effects</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <button id="effect-none-real" class="bg-gray-700 py-1 px-2 rounded text-sm">None</button>
+              <button id="effect-glow-real" class="bg-gray-700 py-1 px-2 rounded text-sm">Glow</button>
+              <button id="effect-toon-real" class="bg-gray-700 py-1 px-2 rounded text-sm">Cartoon</button>
+              <button id="effect-xray-real" class="bg-gray-700 py-1 px-2 rounded text-sm">X-ray</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sprite Detail Page -->
+      <div id="fanda-model-page" class="hidden w-full h-full">
+        <div class="absolute top-5 right-5 z-10">
+          <button id="back-to-products-from-fanda" class="bg-white p-2 rounded-full shadow-lg hover:bg-green-100 transition-colors flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <img src="./public/logo2.png" alt="Coca-Cola" class="h-5 w-5 ml-1">
+          </button>
+        </div>
+        
+        <!-- Model Information Panel -->
+        <div class="absolute top-36 right-5 z-50 bg-black bg-opacity-70 p-4 rounded-lg text-white max-w-xs">
+          <h3 class="text-xl font-bold mb-2">Sprite Series</h3>
+          <p class="mb-3">The Sprite Series beverage has a refreshing lemon flavor and unique green bottle design. This product uses new materials and craftsmanship, presenting a more youthful and energetic visual effect that is popular among young consumers.</p>
+          <div class="text-sm text-gray-300">Click the buttons below to interact with the model</div>
+        </div>
+        
+        <!-- Mouse Operation Hint -->
+        <div class="absolute top-5 left-1/2 transform -translate-x-1/2 z-10 bg-black bg-opacity-70 py-2 px-4 rounded-lg text-white text-center drag-hint">
+          <div class="flex items-center">
+            <svg class="w-6 h-6 mr-2 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+            </svg>
+            <span>Hold left mouse button and drag to rotate and view different angles</span>
+          </div>
+        </div>
+        
+        <!-- Bottom Control Buttons -->
+        <div class="absolute bottom-5 left-5 z-10 flex gap-4">
+          <button id="open-cap-fanda" class="bg-white py-2 px-4 rounded">Open Cap</button>
+          <button id="flatten-fanda" class="bg-white py-2 px-4 rounded">Flatten Bottle</button>
+          <button id="reset-model-fanda" class="bg-white py-2 px-4 rounded">Reset Model</button>
+          <button id="auto-rotate-fanda" class="bg-white py-2 px-4 rounded">Auto Rotate</button>
+        </div>
+        
+        <!-- Side Control Panel -->
+        <div class="absolute left-5 top-1/2 transform -translate-y-1/2 z-10 bg-black bg-opacity-70 p-4 rounded-lg text-white">
+          <div class="mb-6">
+            <h3 class="text-lg font-bold mb-2">Lighting Control</h3>
+            <div class="mb-3">
+              <label class="block mb-1 text-sm">Ambient Light Intensity</label>
+              <input type="range" id="ambient-light-fanda" min="0" max="1" step="0.1" value="0.5" class="w-full">
+            </div>
+            <div class="mb-3">
+              <label class="block mb-1 text-sm">Main Light Intensity</label>
+              <input type="range" id="main-light-fanda" min="0" max="2" step="0.1" value="1" class="w-full">
+            </div>
+            <div class="mb-3">
+              <label class="block mb-1 text-sm">Light Color</label>
+              <input type="color" id="light-color-fanda" value="#ffffff" class="w-full h-8">
+            </div>
+            <div class="mb-3 flex items-center">
+              <input type="checkbox" id="toggle-spotlight-fanda" class="mr-2">
+              <label for="toggle-spotlight" class="text-sm">Enable Spotlight</label>
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <h3 class="text-lg font-bold mb-2">Camera View</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <button id="view-front-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">Front</button>
+              <button id="view-back-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">Back</button>
+              <button id="view-top-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">Top</button>
+              <button id="view-bottom-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">Bottom</button>
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <h3 class="text-lg font-bold mb-2">Material Control</h3>
+            <div class="grid grid-cols-2 gap-2 mb-3">
+              <button id="material-default-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">Default</button>
+              <button id="material-wireframe-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">Wireframe</button>
+              <button id="material-shiny-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">Glossy</button>
+              <button id="material-matte-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">Matte</button>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold mb-2">Effects</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <button id="effect-none-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">None</button>
+              <button id="effect-glow-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">Glow</button>
+              <button id="effect-toon-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">Cartoon</button>
+              <button id="effect-xray-fanda" class="bg-gray-700 py-1 px-2 rounded text-sm">X-ray</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Fanta Detail Page -->
+      <div id="cococola-model-page" class="hidden w-full h-full">
+        <div class="absolute top-5 right-5 z-10">
+          <button id="back-to-products-from-cococola" class="bg-white p-2 rounded-full shadow-lg hover:bg-orange-100 transition-colors flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <img src="./public/logo2.png" alt="Coca-Cola" class="h-5 w-5 ml-1">
+          </button>
+        </div>
+        
+        <!-- Model Information Panel -->
+        <div class="absolute top-36 right-5 z-50 bg-black bg-opacity-70 p-4 rounded-lg text-white max-w-xs">
+          <h3 class="text-xl font-bold mb-2">Fanta Series</h3>
+          <p class="mb-3">The Fanta Series beverage has bright colors and unique bottle design. This product uses new materials and craftsmanship, presenting a more youthful and energetic visual effect that is popular among young consumers.</p>
+          <div class="text-sm text-gray-300">Click the buttons below to interact with the model</div>
+        </div>
+        
+        <!-- Mouse Operation Hint -->
+        <div class="absolute top-5 left-1/2 transform -translate-x-1/2 z-10 bg-black bg-opacity-70 py-2 px-4 rounded-lg text-white text-center drag-hint">
+          <div class="flex items-center">
+            <svg class="w-6 h-6 mr-2 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+            </svg>
+            <span>Hold left mouse button and drag to rotate and view different angles</span>
+          </div>
+        </div>
+        
+        <!-- Bottom Control Buttons -->
+        <div class="absolute bottom-5 left-5 z-10 flex gap-4">
+          <button id="open-cap-cococola" class="bg-white py-2 px-4 rounded">Open Cap</button>
+          <button id="flatten-cococola" class="bg-white py-2 px-4 rounded">Flatten Bottle</button>
+          <button id="reset-model-cococola" class="bg-white py-2 px-4 rounded">Reset Model</button>
+          <button id="auto-rotate-cococola" class="bg-white py-2 px-4 rounded">Auto Rotate</button>
+        </div>
+        
+        <!-- Side Control Panel -->
+        <div class="absolute left-5 top-1/2 transform -translate-y-1/2 z-10 bg-black bg-opacity-70 p-4 rounded-lg text-white">
+          <div class="mb-6">
+            <h3 class="text-lg font-bold mb-2">Lighting Control</h3>
+            <div class="mb-3">
+              <label class="block mb-1 text-sm">Ambient Light Intensity</label>
+              <input type="range" id="ambient-light-cococola" min="0" max="1" step="0.1" value="0.5" class="w-full">
+            </div>
+            <div class="mb-3">
+              <label class="block mb-1 text-sm">Main Light Intensity</label>
+              <input type="range" id="main-light-cococola" min="0" max="2" step="0.1" value="1" class="w-full">
+            </div>
+            <div class="mb-3">
+              <label class="block mb-1 text-sm">Light Color</label>
+              <input type="color" id="light-color-cococola" value="#ffffff" class="w-full h-8">
+            </div>
+            <div class="mb-3 flex items-center">
+              <input type="checkbox" id="toggle-spotlight-cococola" class="mr-2">
+              <label for="toggle-spotlight" class="text-sm">Enable Spotlight</label>
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <h3 class="text-lg font-bold mb-2">Camera View</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <button id="view-front-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">Front</button>
+              <button id="view-back-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">Back</button>
+              <button id="view-top-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">Top</button>
+              <button id="view-bottom-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">Bottom</button>
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <h3 class="text-lg font-bold mb-2">Material Control</h3>
+            <div class="grid grid-cols-2 gap-2 mb-3">
+              <button id="material-default-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">Default</button>
+              <button id="material-wireframe-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">Wireframe</button>
+              <button id="material-shiny-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">Glossy</button>
+              <button id="material-matte-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">Matte</button>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-bold mb-2">Effects</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <button id="effect-none-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">None</button>
+              <button id="effect-glow-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">Glow</button>
+              <button id="effect-toon-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">Cartoon</button>
+              <button id="effect-xray-cococola" class="bg-gray-700 py-1 px-2 rounded text-sm">X-ray</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="model-page" class="hidden">
+        <!-- This is the old model page, kept but not used -->
+      </div>
+
+      <!-- Contact Us Page -->
+      <div id="contact-page" class="hidden w-full h-full">
+        <div class="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
+          <div class="bg-black bg-opacity-80 p-8 rounded-lg w-full max-w-2xl">
+            <h2 class="text-white text-3xl font-bold mb-6 text-center">Contact Us</h2>
+            
+            <form id="contact-form" class="space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="form-group">
+                  <label class="block text-white mb-1">Name</label>
+                  <input type="text" name="name" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-red-500">
+                </div>
+                
+                <div class="form-group">
+                  <label class="block text-white mb-1">Email</label>
+                  <input type="email" name="email" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-red-500">
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="form-group">
+                  <label class="block text-white mb-1">Phone</label>
+                  <input type="tel" name="phone" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-red-500">
+                </div>
+                
+                <div class="form-group">
+                  <label class="block text-white mb-1">Product of Interest</label>
+                  <select name="product" class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-red-500">
+                    <option value="real">Classic CakeCola</option>
+                    <option value="fanda">Refreshing Series</option>
+                    <option value="cococola">Energetic Series</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="block text-white mb-1">Purchase Quantity</label>
+                <input type="number" name="quantity" min="1" value="1" class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-red-500">
+              </div>
+              
+              <div class="form-group">
+                <label class="block text-white mb-1">Message</label>
+                <textarea name="message" rows="4" class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-red-500"></textarea>
+              </div>
+              
+              <div class="text-center">
+                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded transition-colors duration-300">
+                  Submit Request
+                </button>
+              </div>
+            </form>
+            
+            <div id="form-success" class="hidden mt-4 p-3 bg-green-100 text-green-800 rounded">
+              Your information has been successfully submitted. We will contact you as soon as possible!
+            </div>
+            
+            <div id="form-error" class="hidden mt-4 p-3 bg-red-100 text-red-800 rounded">
+              Submission failed. Please try again later or contact us directly.
+            </div>
+          </div>
+          
+          <div class="mt-8 text-white text-center">
+            <h3 class="text-xl font-bold mb-2">Other Contact Methods</h3>
+            <p class="mb-1">Phone: +44 123 456 789</p>
+            <p class="mb-1">Email: contact@cakecola.com</p>
+            <p>Address: XX Street, England</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Page -->
+      <div id="about-page" class="hidden w-full h-full relative bg-gradient-to-b from-gray-900 to-black">
+        <!-- Background Decorative Elements -->
+        <div class="absolute inset-0 overflow-hidden opacity-30">
+          <div class="absolute top-0 right-0 w-96 h-96 bg-red-600 rounded-full blur-3xl -mr-20 -mt-20"></div>
+          <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-600 rounded-full blur-3xl -ml-20 -mb-20"></div>
+          <div class="absolute top-1/3 left-1/4 w-60 h-60 bg-purple-600 rounded-full blur-3xl"></div>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="absolute inset-0 overflow-y-auto py-32 px-4 z-10">
+          <div class="max-w-7xl mx-auto">
+            <!-- Top Title Area -->
+            <div class="mb-16 text-center">
+              <h1 class="inline-block text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500 mb-3">
+                About CakeCola 3D Display
+              </h1>
+              <div class="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 mx-auto mb-6"></div>
+              <p class="text-gray-300 text-xl max-w-3xl mx-auto">
+                Innovative interactive experience, breaking the boundaries of traditional beverage display
+              </p>
+            </div>
+            
+            <!-- Content Card Area -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+              <!-- Project Overview Card -->
+              <div class="bg-gray-900 bg-opacity-70 p-8 rounded-2xl border border-gray-800 shadow-xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-red-900/20">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold text-white ml-4">Project Overview</h3>
+                </div>
+                <p class="text-gray-300 leading-relaxed">
+                  This project is a Web 3D display application for the CakeCola brand, aimed at showcasing our three designed products through interactive 3D models. Users can view products from multiple angles, adjust lighting and materials, and experience the visual characteristics of the products. Additionally, users can send purchase requests to us through the contact form.
+                </p>
+              </div>
+              
+              <!-- Technical Implementation Card -->
+              <div class="bg-gray-900 bg-opacity-70 p-8 rounded-2xl border border-gray-800 shadow-xl transform transition-all duration-300 hover:scale-[1.02] hover:shadow-blue-900/20">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold text-white ml-4">Technical Implementation</h3>
+                </div>
+                <p class="text-gray-300 leading-relaxed mb-4">
+                  The frontend of this project uses a modern Web technology stack, including HTML5, CSS3, and JavaScript. 3D model rendering uses the Three.js library, combined with GSAP to achieve smooth animation effects.
+                </p>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="flex items-center">
+                    <div class="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
+                    <span class="text-gray-300">HTML5 & CSS3</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                    <span class="text-gray-300">Three.js</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                    <span class="text-gray-300">GSAP Animation</span>
+                  </div>
+                  <div class="flex items-center">
+                    <div class="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                    <span class="text-gray-300">Django Backend</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Feature Cards -->
+            <div class="mb-16">
+              <h2 class="text-3xl font-bold text-white mb-10 text-center">Core Features</h2>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 3D Model Feature -->
+                <div class="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 shadow-lg">
+                  <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-red-700 rounded-lg flex items-center justify-center shadow-lg mb-4 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-white mb-3 text-center">3D Model Development</h3>
+                  <ul class="text-gray-300 space-y-2">
+                    <li class="flex items-start">
+                      <div class="w-5 h-5 bg-red-600 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <span class="text-xs text-white font-bold">1</span>
+                      </div>
+                      <p>Optimized geometric structure design, balancing detail and performance</p>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="w-5 h-5 bg-red-600 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <span class="text-xs text-white font-bold">2</span>
+                      </div>
+                      <p>PBR material application, realistically reflecting product physical characteristics</p>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="w-5 h-5 bg-red-600 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <span class="text-xs text-white font-bold">3</span>
+                      </div>
+                      <p>Diversified lighting system, including ambient light, directional light, and spotlight</p>
+                    </li>
+                  </ul>
+                </div>
+                
+                <!-- Interactive Design Feature -->
+                <div class="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 shadow-lg">
+                  <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-700 rounded-lg flex items-center justify-center shadow-lg mb-4 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-white mb-3 text-center">Interactive Design</h3>
+                  <ul class="text-gray-300 space-y-2">
+                    <li class="flex items-start">
+                      <div class="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <span class="text-xs text-white font-bold">1</span>
+                      </div>
+                      <p>Intuitive user interface, responsive design adapting to different devices</p>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <span class="text-xs text-white font-bold">2</span>
+                      </div>
+                      <p>360° free rotation to view all angles of the model</p>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <span class="text-xs text-white font-bold">3</span>
+                      </div>
+                      <p>Real-time adjustment of lighting, materials, and effect parameters</p>
+                    </li>
+                  </ul>
+                </div>
+                
+                <!-- Performance Optimization Feature -->
+                <div class="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 shadow-lg">
+                  <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center shadow-lg mb-4 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-white mb-3 text-center">Performance Optimization</h3>
+                  <ul class="text-gray-300 space-y-2">
+                    <li class="flex items-start">
+                      <div class="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <span class="text-xs text-white font-bold">1</span>
+                      </div>
+                      <p>Optimized 3D models and textures, reducing loading time</p>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <span class="text-xs text-white font-bold">2</span>
+                      </div>
+                      <p>Lazy loading technology, improving page response speed</p>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                        <span class="text-xs text-white font-bold">3</span>
+                      </div>
+                      <p>Adaptive rendering quality, adjusting according to device performance</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Team Introduction and Tech Stack -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-16">
+              <div class="lg:col-span-3 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 shadow-xl border border-gray-700">
+                <h3 class="text-2xl font-bold text-white mb-6">Our Technology Stack</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-red-600 mx-auto mb-3 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div class="text-white font-semibold">HTML5/CSS3</div>
+                  </div>
+                  <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 mx-auto mb-3 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                      </svg>
+                    </div>
+                    <div class="text-white font-semibold">JavaScript</div>
+                  </div>
+                  <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 mx-auto mb-3 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                      </svg>
+                    </div>
+                    <div class="text-white font-semibold">Three.js</div>
+                  </div>
+                  <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 mx-auto mb-3 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                      </svg>
+                    </div>
+                    <div class="text-white font-semibold">GSAP</div>
+                  </div>
+                  <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 mx-auto mb-3 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                      </svg>
+                    </div>
+                    <div class="text-white font-semibold">TailwindCSS</div>
+                  </div>
+                  <div class="bg-gray-800 rounded-lg p-4 text-center">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 mx-auto mb-3 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                      </svg>
+                    </div>
+                    <div class="text-white font-semibold">Django</div>
+                  </div>
+                </div>
+              </div>
+              <div class="lg:col-span-2 bg-gradient-to-br from-gray-800 to-black rounded-2xl p-8 shadow-xl border border-gray-700 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-2xl font-bold text-white mb-6">Contact Us</h3>
+                  <p class="text-gray-300 mb-6">
+                    If you have any questions or suggestions about our 3D product display, or if you want to know more about the details of our technical implementation, please feel free to contact us at any time.
+                  </p>
+                </div>
+                <div class="flex justify-center">
+                  <button id="contact-us-btn" class="px-8 py-3 bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold rounded-full shadow-lg transform transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                    Contact Us
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Project Outlook -->
+            <div class="text-center mb-12">
+              <h3 class="text-2xl font-bold text-white mb-6">Project Outlook</h3>
+              <p class="text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                We continuously optimize and improve this 3D product display platform, with future plans to add more interactive features, a richer product series, and in-depth personalization options. Our goal is to create an immersive brand experience that allows users to explore and understand our products in unprecedented ways.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <canvas id="canvas-model" class="canvas"></canvas>
+    </div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

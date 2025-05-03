@@ -1,0 +1,189 @@
+/* CakeCola Custom Admin Interface Styles */
+
+/* Title and content styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+}
+
+/* Main content styles */
+#content {
+  padding: 20px;
+}
+
+/* Table styles */
+#changelist table {
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#changelist table thead th {
+  background-color: #111827;
+  color: white;
+  padding: 12px 8px;
+  font-weight: bold;
+}
+
+#changelist table tbody tr td {
+  padding: 10px 8px;
+}
+
+#changelist table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+#changelist table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* Button styles */
+.button, input[type=submit], input[type=button] {
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.button:hover, input[type=submit]:hover, input[type=button]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Breadcrumb navigation */
+div.breadcrumbs {
+  padding: 15px 20px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+.form-row {
+  padding: 12px 0;
+}
+
+.form-row label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form-row input, .form-row textarea, .form-row select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+}
+
+.form-row input:focus, .form-row textarea:focus, .form-row select:focus {
+  border-color: #dc2626;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.3);
+}
+
+/* Module styles */
+.module {
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.module h2 {
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Dashboard styles */
+.dashboard .module {
+  margin-bottom: 20px;
+}
+
+.dashboard .module table {
+  width: 100%;
+}
+
+/* Pagination styles */
+.paginator {
+  padding: 15px;
+  background-color: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+}
+
+.paginator a:link, .paginator a:visited {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+}
+
+.paginator a:hover {
+  background-color: #dc2626;
+  color: white;
+  border-color: #dc2626;
+}
+
+/* Message styles */
+.messagelist {
+  padding: 0;
+}
+
+.messagelist li {
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.messagelist li.success {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.messagelist li.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.messagelist li.warning {
+  background-color: #fef9c3;
+  color: #854d0e;
+  border: 1px solid #fde047;
+}
+
+/* Dialog styles */
+.ui-dialog {
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.ui-dialog-titlebar {
+  background-color: #111827;
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Login page custom styles */
+.login #branding h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* Mobile adaptation */
+@media (max-width: 767px) {
+  #header {
+    flex-direction: column;
+    padding: 15px 0;
+  }
+  
+  #branding {
+    margin-bottom: 10px;
+  }
+  
+  .module table {
+    display: block;
+    overflow-x: auto;
+  }
+}
